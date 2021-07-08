@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a90d2c3b-5ad3-4cfb-bfcc-1965c508c025">
+	<property name="ireport.zoom" value="0.9090909090909145"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     dtbrg.`kode_barang` AS dtbrg_kode_barang,
+     dtbrg.`nama_barang` AS dtbrg_nama_barang,
+     dtbrg.`jenis` AS dtbrg_jenis,
+     dtbrg.`jumlah` AS dtbrg_jumlah,
+     dtbrg.`pembelian` AS dtbrg_pembelian,
+     dtbrg.`penjualan` AS dtbrg_penjualan
+FROM
+     `dtbrg` dtbrg]]>
+	</queryString>
+	<field name="dtbrg_kode_barang" class="java.lang.String"/>
+	<field name="dtbrg_nama_barang" class="java.lang.String"/>
+	<field name="dtbrg_jenis" class="java.lang.String"/>
+	<field name="dtbrg_jumlah" class="java.lang.Integer"/>
+	<field name="dtbrg_pembelian" class="java.lang.Integer"/>
+	<field name="dtbrg_penjualan" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="84" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="0" y="0" width="801" height="62" uuid="85ec3d7a-e6d1-47ab-84e1-809ed8ac330e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="30" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Rekapitulasi Data Barang]]></text>
+			</staticText>
+			<textField pattern="dd MMMMM yyyy">
+				<reportElement style="Column header" x="59" y="62" width="188" height="20" forecolor="#000000" uuid="129a1dc6-1ed5-4d1a-ba81-61e7c03041cf"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="2" y="62" width="57" height="20" uuid="05146c08-e6b4-4b18-ad4e-ce84419e36c0"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<text><![CDATA[Tanggal: ]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="17" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" x="1" y="1" width="131" height="14" forecolor="#000000" uuid="5429ac5a-12da-490b-99c9-5fb2e7172929"/>
+				<text><![CDATA[Kode Barang]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="133" y="1" width="132" height="14" forecolor="#000000" uuid="02507c48-e95e-4239-a0cd-7865da588833"/>
+				<text><![CDATA[Nama Barang]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="266" y="1" width="132" height="14" forecolor="#000000" uuid="8968931f-ea7c-46ce-8efe-9cfe962dd9a9"/>
+				<text><![CDATA[Jenis]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="399" y="1" width="132" height="14" forecolor="#000000" uuid="99c0a01f-2035-4b22-9ae2-5b9954e95636"/>
+				<text><![CDATA[Jumlah]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="533" y="1" width="131" height="14" forecolor="#000000" uuid="ee3e6610-289c-4ede-ad53-48c1f34b9e6c"/>
+				<text><![CDATA[Harga Beli]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="665" y="0" width="136" height="15" forecolor="#000000" uuid="b7267833-620f-4a84-8bb5-8ee92c38f484"/>
+				<text><![CDATA[Harga Jual]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="0" width="801" height="1" uuid="cbe77350-949b-4a5e-a6da-37356cff258d"/>
+			</line>
+			<line>
+				<reportElement x="0" y="16" width="802" height="1" uuid="11f3ee89-6540-4718-9ec0-0edabc5e8ba4"/>
+			</line>
+			<line>
+				<reportElement x="0" y="1" width="1" height="16" uuid="2f15b098-0618-45d2-992e-f1beac1a8afc"/>
+			</line>
+			<line>
+				<reportElement x="132" y="1" width="1" height="16" uuid="0880c2b2-8edf-4442-a851-86ba114cbb26"/>
+			</line>
+			<line>
+				<reportElement x="265" y="1" width="1" height="16" uuid="62586608-a519-4755-9d50-22515aba1403"/>
+			</line>
+			<line>
+				<reportElement x="398" y="0" width="1" height="16" uuid="5e5cfde7-c8af-453f-a9fd-cdf4f921dd34"/>
+			</line>
+			<line>
+				<reportElement x="531" y="1" width="1" height="16" uuid="76cacba0-50d6-4c03-963b-c6dccf21a2f2"/>
+			</line>
+			<line>
+				<reportElement x="664" y="1" width="1" height="16" uuid="96cb9ba0-f6ae-4422-984d-7a4879eef7e4"/>
+			</line>
+			<line>
+				<reportElement x="801" y="0" width="1" height="16" uuid="c57a4202-c2b3-4133-abc1-71ead2bc73cd"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="17" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="1" y="0" width="131" height="15" uuid="9c2fb0fe-0bec-43cd-a8d6-80a25531e559"/>
+				<textFieldExpression><![CDATA[$F{dtbrg_kode_barang}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="133" y="0" width="132" height="15" uuid="843eba6e-cc52-418e-a4d1-1939dbaeed3d"/>
+				<textFieldExpression><![CDATA[$F{dtbrg_nama_barang}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="266" y="0" width="132" height="15" uuid="8da7c6e7-561b-4d8a-8cb0-e391e4cad7fe"/>
+				<textFieldExpression><![CDATA[$F{dtbrg_jenis}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="399" y="0" width="132" height="15" uuid="2261b77f-6828-4f4b-a717-0b799f13e69a"/>
+				<textFieldExpression><![CDATA[$F{dtbrg_jumlah}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="532" y="0" width="132" height="15" uuid="f9b7a6f0-1e71-43f6-9338-e743b92680cc"/>
+				<textFieldExpression><![CDATA[$F{dtbrg_pembelian}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="15" width="802" height="1" uuid="cbcf2716-c45d-4555-8aa9-59b3687e3385"/>
+			</line>
+			<line>
+				<reportElement x="0" y="0" width="1" height="16" uuid="0ddf8b7a-02de-4a0a-9c17-a5e3d473062f"/>
+			</line>
+			<line>
+				<reportElement x="132" y="0" width="1" height="16" uuid="65f0455d-6b29-4693-9b8e-10141b66e4df"/>
+			</line>
+			<line>
+				<reportElement x="265" y="0" width="1" height="16" uuid="b5addd88-7db2-478b-96fe-a5771e38ac3c"/>
+			</line>
+			<line>
+				<reportElement x="531" y="0" width="1" height="16" uuid="8fcbe885-ba7c-4de8-8d8a-1abd5bb2ecfc"/>
+			</line>
+			<line>
+				<reportElement x="664" y="0" width="1" height="16" uuid="66d203cb-355f-4232-9d54-7011d53caae9"/>
+			</line>
+			<line>
+				<reportElement x="398" y="0" width="1" height="16" uuid="7a0dd143-8f90-4e8a-94aa-60c7b821ca36"/>
+			</line>
+			<line>
+				<reportElement x="801" y="0" width="1" height="16" uuid="be9cba44-0ac3-401b-8871-4140cf14d178"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="665" y="0" width="137" height="16" uuid="587be57d-d6f5-48da-9710-0315f86c69b1"/>
+				<textFieldExpression><![CDATA[$F{dtbrg_penjualan}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="6" splitType="Stretch"/>
+	</columnFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
